@@ -22,13 +22,17 @@ set $red        #A5243D
 set $silver     #b0b0b0
 set $independence #4F5D75
 
+input type:pointer {
+  accel_profile "flat"
+}
+
 client.urgent            $red        $red     $back      $red
 client.focused           #364A82 #364A82 #c0caf5 #9aa5ce   #9aa5ce
 client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
 client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
 
 # Fonts
-font pango:SF Pro Display Regular 10
+font pango:Inter Regular 10
 
 # Border, gap settings
 for_window [class="^.*"] border pixel 2
@@ -115,8 +119,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0
 
 # Reloading
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r swaymsg reload
 
 # exit
 bindsym $mod+Shift+q exec i3lock-fancy
@@ -178,3 +181,13 @@ for_window [window_type="menu"] floating enable
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id waybar
 exec_always --no-startup-id feh --bg-scale /mnt/media/wall/uw/wallhaven-pkp8g9.png
+
+exec_always {
+  gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+  gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+  export GTK_THEME=Adwaita:dark
+  export QT_QPA_PLATFORMTHEME=qt5ct
+  export XDG_CURRENT_DESKTOP=sway
+  export XDG_SESSION_TYPE=wayland
+  export XDG_SESSION_DESKTOP=sway
+}
