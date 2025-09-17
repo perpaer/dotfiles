@@ -28,6 +28,7 @@ vim.keymap.set('n', '<leader><leader>', find_files_cmd, { desc = 'Find files', s
 vim.keymap.set('n', '<leader>ff', find_files_cmd, { desc = 'Find files', silent = true })
 -- vim.keymap.set('n', '<leader>F', find_files_cmd, { desc = 'Find files', silent = true })
 
+vim.keymap.set('n', '<leader>t', ':Telescope <CR>', { desc = 'Telescope open', silent = true })
 vim.keymap.set('n', '<leader>b', ':Telescope buffers <CR>', { desc = 'Go to file in [b]uffers', silent = true })
 vim.keymap.set('n', '<leader>fg', ':Telescope live_grep <CR>', { desc = 'Grep', silent = true })
 vim.keymap.set('n', '<leader>fr', ':Telescope lsp_references<CR>', { desc = 'Find code references', silent = true })

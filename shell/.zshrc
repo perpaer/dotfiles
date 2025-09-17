@@ -44,6 +44,7 @@ export PATH=$PATH:$HOME/.local/bin
 
 # Android
 export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_AVD_HOME=$HOME/.config/.android/avd
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
@@ -89,3 +90,9 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 export BROWSER=brave
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# opencode
+export PATH=/home/rejd/.opencode/bin:$PATH

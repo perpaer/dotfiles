@@ -36,7 +36,7 @@ return {
       -- Mason
       require('mason').setup()
       require('mason-lspconfig').setup({
-        ensure_installed = { 'ts_ls', 'lua_ls', 'tailwindcss', 'elixirls', 'eslint' },
+        ensure_installed = { 'ts_ls', 'eslint' },
         handlers = {
           function(server_name)
             require("lspconfig")[server_name].setup {

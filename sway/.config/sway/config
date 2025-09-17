@@ -32,8 +32,8 @@ font pango:SF Pro Display Regular 10
 
 # Border, gap settings
 for_window [class="^.*"] border pixel 2
-new_window pixel 2
-new_float pixel 2
+default_border pixel 2
+default_floating_border pixel 2
 smart_borders on
 set $default_gaps_inner 4
 set $default_gaps_outer 8
@@ -53,7 +53,7 @@ bindsym $mod+Return exec wezterm
 bindsym $mod+q kill
 
 # Rofi
-bindsym $mod+space exec rofi -show drun
+bindsym $mod+space exec wofi --show drun
 # bindsym $mod+w exec rofi -show window
 
 # Change focus
@@ -140,17 +140,18 @@ bindsym --release Shift+Print exec "scrot -s $HOME/Pictures/screenshots/%s_%H%M_
 bindsym --release Print exec "scrot -s $HOME/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png -e 'xclip -selection clipboard -target image/png -i $f'"
 
 # Media player controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5%
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5%
+# bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute @DEFAULT_SINK@ toggle
+# bindsym XF86AudioPlay exec playerctl play-pause
+# bindsym XF86AudioPause exec playerctl play-pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
 # Assigning workspaces
 assign [class="firefox"] $ws1
 assign [class="Brave"] $ws1
+assign [class="Zen Browser"] $ws1
 assign [class="Wine"] $ws9
 assign [class="Slack"] $ws4
 assign [class="discord"] $ws4
@@ -171,23 +172,9 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [class="*.exe"] floating enable
+# for_window [class="*.exe"] floating enable
 
 # Autostart
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id picom
-
-exec_always xidlehook \
-  --not-when-fullscreen \
-  --not-when-audio \
-  --timer 900 \
-    'xrandr --output "$PRIMARY_DISPLAY" --brightness .1' \
-    'xrandr --output "$PRIMARY_DISPLAY" --brightness 1' \
-  --timer 10 \
-    'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; i3lock-fancy' \
-    '' \
-  --timer 3600 \
-    'systemctl suspend' \
-    ''
-exec_always --no-startup-id feh --bg-scale /data/wall/uw/wallhaven-pkp8g9.png
+exec_always --no-startup-id waybar
+exec_always --no-startup-id feh --bg-scale /mnt/media/wall/uw/wallhaven-pkp8g9.png

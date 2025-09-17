@@ -6,11 +6,11 @@
     "margin-left": 8,
     "margin-right": 8,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": ["custom/weather"],
     "modules-right": ["mpris", "wireplumber", "tray", "clock"],
 
-    "hyprland/workspaces": {
+    "sway/workspaces": {
       "disable-scroll": true,
       "all-outputs": true,
       "warp-on-scroll": false,
@@ -30,10 +30,6 @@
         "focused": "",
         "default": ""
       }
-    },
-
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
     },
 
     "mpris": {
