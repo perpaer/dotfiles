@@ -26,6 +26,10 @@ input type:pointer {
   accel_profile "flat"
 }
 
+input type:keyboard {
+  xkb_layout hr
+  xkb_variant us
+}
 client.urgent            $red        $red     $back      $red
 client.focused           #364A82 #364A82 #c0caf5 #9aa5ce   #9aa5ce
 client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
@@ -57,7 +61,7 @@ bindsym $mod+Return exec wezterm
 bindsym $mod+q kill
 
 # Rofi
-bindsym $mod+space exec wofi --show drun
+bindsym $mod+space exec wofi --show drun 
 # bindsym $mod+w exec rofi -show window
 
 # Change focus
@@ -119,11 +123,10 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws0
 
 # Reloading
-bindsym $mod+Shift+r swaymsg reload
+bindsym $mod+Shift+r reload
 
 # exit
 bindsym $mod+Shift+q exec i3lock-fancy
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Quit?' -b 'Yes' 'i3-msg exit'"
 
 # resize
 bindsym $mod+r mode "resize"
@@ -151,39 +154,20 @@ bindsym --release Print exec "scrot -s $HOME/Pictures/screenshots/%s_%H%M_%d%m%Y
 # bindsym XF86AudioNext exec playerctl next
 # bindsym XF86AudioPrev exec playerctl previous
 
-# Assigning workspaces
-assign [class="firefox"] $ws1
-assign [class="Brave"] $ws1
-assign [class="Zen Browser"] $ws1
-assign [class="Wine"] $ws9
-assign [class="Slack"] $ws4
-assign [class="discord"] $ws4
-assign [class="steam"] $ws9
-assign [class="Lutris"] $ws9
-
-#always floating
-for_window [class="Galculator"] floating enable
-for_window [class="Wine"] floating enable
-for_window [class="steam"] floating enable
-for_window [class="Bottles"] floating enable
-for_window [class="Lutris"] floating enable
-for_window [class="Battle.net"] floating enable
-for_window [class="battle.net.exe"] floating enable
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
-# for_window [class="*.exe"] floating enable
-
 # Autostart
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id waybar
-exec_always --no-startup-id feh --bg-scale /mnt/media/wall/uw/wallhaven-pkp8g9.png
+exec_always --no-startup-id swaybg -i /mnt/media/wall/uw/wallhaven-nekxjk.png
+exec_always sway-audio-idle-inhibit
+exec_always swayidle -w \
+  timeout 600 'swaylock -f -c 000000' \
+  timeout 900 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep 'swaylock -f -c 000000'
 
 exec_always {
-  gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+  gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-macchiato-lavender-standard+default'
+  gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   export GTK_THEME=Adwaita:dark
   export QT_QPA_PLATFORMTHEME=qt5ct
