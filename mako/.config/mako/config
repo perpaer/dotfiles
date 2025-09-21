@@ -1,0 +1,15 @@
+sort=-time
+padding=0,16,16
+default-timeout=5000
+max-icon-size=32
+
+width=360
+height=300
+text-color=#cad3f5
+background-color=#24273a
+border-color=#494d64
+border-radius=8
+
+[urgency=high]
+default-timeout=0
+border-color=#ed8796
