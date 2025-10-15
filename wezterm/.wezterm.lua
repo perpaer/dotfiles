@@ -8,8 +8,6 @@ config.font_size = 10.0
 config.line_height = 1.2
 
 config.enable_tab_bar = false
-
--- temporary
-config.enable_wayland = false
+config.enable_wayland = true
 
 return config
