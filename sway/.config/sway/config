@@ -30,6 +30,9 @@ input type:keyboard {
   xkb_layout hr
   xkb_variant us
 }
+
+output * adaptive_sync on
+
 client.urgent            $red        $red     $back      $red
 client.focused           #364A82 #364A82 #c0caf5 #9aa5ce   #9aa5ce
 client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
@@ -166,11 +169,10 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id waybar
 exec --no-startup-id swaybg -i /mnt/media/wall/uw/wallhaven-nekxjk.png
 exec swayidle -w \
-  timeout 600 'swaylock -f -c 000000' \
+  timeout 600 'swaylock --screenshots --fade-in -0.2 --effect-blur 7x4' \
   timeout 900 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock -f -c 000000'
-exec --no-startup-id sway-audio-idle-inhibit
 
 exec /usr/lib/xdg-desktop-portal-gtk -r
 
