@@ -6,3 +6,6 @@ vscode/.config/Code/User/*
 !vscode/.config/Code/User/settings.json
 
 nvim/.config/nvim/.netrwhist
+
+music/.config/mpd/database
+music/.config/mpd/pid
