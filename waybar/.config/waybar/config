@@ -8,7 +8,7 @@
 
     "modules-left": ["sway/workspaces", "sway/window"],
     "modules-center": ["custom/weather"],
-    "modules-right": ["mpris", "wireplumber", "tray", "bluetooth", "clock"],
+    "modules-right": ["mpris", "wireplumber", "tray", "clock"],
 
     "sway/workspaces": {
       "disable-scroll": true,
@@ -59,13 +59,6 @@
       "format": "{}",
       "tooltip": true,
       "interval": 3600
-    },
-
-    "bluetooth": {
-      "interval": 30,
-      "on-click": "blueman-manager",
-      "on-click-right": "rfkill toggle bluetooth",
-      "tooltip-format": "{}"
-    },
+    }
 }
 

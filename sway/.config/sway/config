@@ -165,6 +165,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Autostart
+exec blueman-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id waybar
 exec --no-startup-id swaybg -i /mnt/media/wall/uw/wallhaven-nekxjk.png
