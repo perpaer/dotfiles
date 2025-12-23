@@ -57,23 +57,18 @@ floating_modifier $mod
 # KEYBINDS
 # --------
 
-# Terminal
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec alacritty
+bindsym $mod+space exec wofi --show drun 
 
-# Kill focused window
 bindsym $mod+q kill
 
-# Rofi
-bindsym $mod+space exec wofi --show drun 
-# bindsym $mod+w exec rofi -show window
-
-# Change focus
+# focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# Move focused window
+# Move window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -95,11 +90,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+Shift+f focus mode_toggle
-
-# focus the parent container
-# bindsym $mod+a focus parent
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -129,7 +119,7 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 bindsym $mod+Shift+r reload
 
 # exit
-bindsym $mod+Shift+q exec i3lock-fancy
+bindsym $mod+Shift+q exec swaylock --screenshots --fade-in -0.2 --effect-blur 7x4
 
 # resize
 bindsym $mod+r mode "resize"
@@ -152,10 +142,13 @@ for_window [window_type="toolbar"] floating enable
 for_window [window_type="splash"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 
+# fixes web clipping issues
+for_window [class="obsidian"] focus_on_window_activation focus
+
 # Scrot
 bindsym --release Print exec "grimshot savecopy area"
 
-# Media player controls
+# Media controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute @DEFAULT_SINK@ toggle
