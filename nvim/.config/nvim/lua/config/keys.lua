@@ -4,7 +4,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 -- regular stuff
 vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save file' })
-vim.keymap.set('n', '<C-q>', ':q<CR>', { desc = 'Quit file' })
+vim.keymap.set('n', '<C-q>', ':bd<CR>', { desc = 'Close current buffer' })
 vim.keymap.set('n', '<C-b>', ':bufdo bd', { desc = 'Close buffers' })
 vim.keymap.set('n', '[b', ':bprevious<CR>', { desc = 'Previous buffer' })
 vim.keymap.set('n', ']b', ':bnext<CR>', { desc = 'Next buffer' })

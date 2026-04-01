@@ -18,8 +18,7 @@ return {
         highlight = {
           enable = true,
           disable = function(lang, buf)
-            if lang == "html" then
-              print("disabled")
+            if lang == "html" or lang == "dockerfile" then
               return true
             end
 
