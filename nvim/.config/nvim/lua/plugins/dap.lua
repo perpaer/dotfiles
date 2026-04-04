@@ -43,21 +43,13 @@ return {
     }
 
     dapui.setup {
+      expand_lines = true,
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
-      controls = {
-        icons = {
-          pause = '⏸',
-          play = '▶',
-          step_into = '⏎',
-          step_over = '⏭',
-          step_out = '⏮',
-          step_back = 'b',
-          run_last = '▶▶',
-          terminate = '⏹',
-          disconnect = '⏏',
-        },
-      },
+      controls = { enabled = false },
     }
+
+    vim.fn.sign_define('DapBreakpoint', { text = '⚪', texthl = '', linehl = '', numhl = '' })
+    vim.fn.sign_define('DapStopped', { text = '🛑', texthl = '', linehl = '', numhl = '' })
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close

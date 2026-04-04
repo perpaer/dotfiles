@@ -1,11 +1,7 @@
-vscode/.config/Code/*
-!vscode/.config/Code/User/
-vscode/.config/Code/User/*
-!vscode/.config/Code/User/snippets/
-!vscode/.config/Code/User/keybindings.json
-!vscode/.config/Code/User/settings.json
-
 nvim/.config/nvim/.netrwhist
-
 music/.config/mpd/database
 music/.config/mpd/pid
+
+alacritty/.config/alacritty/theme.toml
+hyprland/.config/hypr/theme*.conf
+yazi/.config/yazi/theme.toml

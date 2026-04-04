@@ -1,0 +1,4 @@
+[mgr]
+prepend_keymap = [
+  { on = "H", run = "hidden toggle", desc = "Toggle hidden files" },
+]

@@ -1,8 +1,6 @@
-# Mod key -> Super
+# Variables
 set $mod Mod4
 set $resizeStep 30
-
-# Workspace names
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
@@ -13,8 +11,6 @@ set $ws7 "7:"
 set $ws8 "8:"
 set $ws9 "9:"
 set $ws0 "0:"
-
-# Color scheme
 set $white      #fefefe
 set $grey       #979C9C
 set $back       #2D3142
@@ -31,7 +27,11 @@ input type:keyboard {
   xkb_variant us
 }
 
-output * adaptive_sync on
+output "DP-2" {
+  hdr off
+  adaptive_sync on
+  render_bit_depth 10
+}
 
 client.urgent            $red        $red     $back      $red
 client.focused           #364A82 #364A82 #c0caf5 #9aa5ce   #9aa5ce
@@ -58,7 +58,7 @@ floating_modifier $mod
 # --------
 
 bindsym $mod+Return exec alacritty
-bindsym $mod+space exec wofi --show drun 
+bindsym $mod+space exec wofi --show drun
 
 bindsym $mod+q kill
 
@@ -134,18 +134,21 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
-# auto-float
-for_window [window_role="pop-up"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="utility"] floating enable
-for_window [window_type="toolbar"] floating enable
-for_window [window_type="splash"] floating enable
-for_window [app_id="pavucontrol"] floating enable
+# window rules
+for_window {
+  [window_role="pop-up"] floating enable
+  [window_role="dialog"] floating enable
+  [window_type="dialog"] floating enable
+  [window_type="utility"] floating enable
+  [window_type="toolbar"] floating enable
+  [window_type="splash"] floating enable
+  [app_id="pavucontrol"] floating enable
+  [app_id="steam"] floating enable
+  # fixes web clipping issues
+  [app_id="obsidian"] focus_on_window_activation focus
+}
 
-# fixes web clipping issues
-for_window [class="obsidian"] focus_on_window_activation focus
-
-# Scrot
+# Shooting the screen
 bindsym --release Print exec "grimshot savecopy area"
 
 # Media controls
@@ -159,13 +162,16 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Autostart
 exec blueman-applet
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec mako
+exec sway-audio-idle-inhibit
 exec --no-startup-id waybar
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id swaybg -i /mnt/media/wall/uw/wallhaven-nekxjk.png
+
 exec swayidle -w \
   timeout 600 'swaylock --screenshots --fade-in -0.2 --effect-blur 7x4' \
-  timeout 900 'swaymsg "output * dpms off"' \
-  resume 'swaymsg "output * dpms on"' \
+  timeout 900 'swaymsg "output * power off"' \
+  resume 'swaymsg "output * power on"' \
   before-sleep 'swaylock -f -c 000000'
 
 exec /usr/lib/xdg-desktop-portal-gtk -r
