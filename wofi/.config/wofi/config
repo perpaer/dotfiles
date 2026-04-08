@@ -1,8 +1,0 @@
-term=alacritty
-allow_images=true
-show=drun
-gtk_dark=true
-show_all=true
-key_expand=Tab
-lines=8
-width=25%
