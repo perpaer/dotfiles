@@ -1,7 +1,7 @@
 nvim/.config/nvim/.netrwhist
-music/.config/mpd/database
-music/.config/mpd/pid
 
-alacritty/.config/alacritty/theme.toml
+mpd/.config/mpd/database
+mpd/.config/mpd/pid
+
 hyprland/.config/hypr/theme*.conf
 yazi/.config/yazi/theme.toml
