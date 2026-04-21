@@ -28,3 +28,4 @@ video/quicktime=mpv.desktop
 video/webm=mpv.desktop
 video/x-matroska=mpv.desktop
 x-scheme-handler/jetbrains=jetbrainsd.desktop
+x-scheme-handler/slack=slack.desktop
