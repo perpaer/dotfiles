@@ -33,39 +33,36 @@ return {
         end,
       })
 
-      -- Mason
+      -- Mason for package management
       require('mason').setup()
       require('mason-lspconfig').setup({
-        ensure_installed = { 'ts_ls', 'eslint' },
-        handlers = {
-          function(server_name)
-            require("lspconfig")[server_name].setup {
-              capabilities = capabilities
-            }
-          end,
-          ts_ls = function()
-            local lsp = require('lspconfig')
-
-            lsp.ts_ls.setup({
-              capabilities = capabilities,
-              single_file_support = false,
-              root_dir = lsp.util.root_pattern('turbo.json', 'tsconfig.json', 'package.json')
-            })
-          end
-        }
+        ensure_installed = { 'lua_ls', 'ts_ls', 'eslint' },
       })
+
+      -- Global capabilities applied to all LSP servers
+      vim.lsp.config('*', {
+        capabilities = capabilities,
+      })
+
+      -- ts_ls specific configuration
+      vim.lsp.config('ts_ls', {
+        single_file_support = false,
+        root_dir = function(bufnr, on_dir)
+          local root = vim.fs.root(vim.api.nvim_buf_get_name(bufnr), { 'turbo.json', 'tsconfig.json', 'package.json' })
+          on_dir(root)
+        end,
+      })
+
+      -- Enable servers
+      for _, server in ipairs({ 'lua_ls', 'ts_ls', 'eslint' }) do
+        vim.lsp.enable(server)
+      end
 
       cmp.setup({
         sources = {
           { name = "nvim_lsp", max_item_count = 5 },
           { name = "buffer",   max_item_count = 5 },
           { name = "path",     max_item_count = 3 },
-          -- { name = "luasnip",  max_item_count = 3 },
-        },
-        snippet = {
-          expand = function(args)
-            vim.snippet.expand(args.body)
-          end,
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-Space>'] = cmp.mapping.complete(),

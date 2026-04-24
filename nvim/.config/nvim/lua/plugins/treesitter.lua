@@ -29,7 +29,7 @@ return {
       require('nvim-treesitter').setup({})
 
       require('nvim-treesitter').install({
-        'vimdoc', 'javascript', 'typescript', 'tsx', 'c', 'lua', 'rust',
+        'vimdoc', 'json', 'javascript', 'typescript', 'tsx', 'c', 'lua', 'rust',
         'jsdoc', 'bash', 'templ',
       })
 
