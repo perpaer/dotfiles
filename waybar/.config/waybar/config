@@ -1,91 +1,85 @@
 {
-    "height": 36,
-    "spacing": 16,
-    "layer": "top",
-    "margin-top": 8,
-    "margin-left": 8,
-    "margin-right": 8,
-
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["custom/weather"],
-    "modules-right": ["mpris", "wireplumber", "memory", "tray", "clock"],
-
-    "hyprland/workspaces": {
-      "disable-scroll": true,
-      "all-outputs": true,
-      "warp-on-scroll": false,
-      "format": "{icon}",
-      "format-icons": {
-        "1": "I",
-        "2": "II",
-        "3": "III",
-        "4": "IV",
-        "5": "V",
-        "6": "VI",
-        "7": "VII",
-        "8": "VIII",
-        "9": "IX",
-        "default": "O",
-        "focused": "I",
-        "urgent": "",
-      }
-    },
-
-    "sway/workspaces": {
-      "disable-scroll": true,
-      "all-outputs": true,
-      "warp-on-scroll": false,
-      "format": "{icon}",
-      "format-icons": {
-        "default": "O",
-        "focused": "I",
-        "urgent": "",
-      }
-    },
-
-    "mpris": {
-      "format": "{player_icon} {player} | {title} - {artist}",
-      "format-paused": "{status_icon} <i>{dynamic}</i>",
-      "player-icons": {
-        "default": "▶",
-        "mpv": "🎵"
-      },
-      "status-icons": {
-        "paused": "⏸"
-      },
-    },
-
-    "memory": {
-      "format": "󰍛   {}%",
-      "interval": 5,
-      "tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB"
-    },
-
-    "tray": {
-      // "icon-size": 21,
-      "spacing": 8
-    },
-
-    "clock": {
-      "format": "{:%a %b %d %I:%M %p}",
-      "format-alt": " {:%Y-%m-%d}",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    },
-
-    "wireplumber": {
-      "format": "{icon}  {volume}%  {node_name}",
-      "format-muted": "",
-      "on-click": "pulseuadio-control togmute",
-      "on-click-right": "pulseaudio-control next-node",
-      "format-icons": ["", "", ""]
-    },
-
-    "custom/weather": {
-      "exec": "${HOME}/.config/waybar/scripts/wttr.sh Zagreb+Croatia",
-      "return-type": "json",
-      "format": "{}",
-      "tooltip": true,
-      "interval": 3600
+  "height": 36,
+  "spacing": 16,
+  "layer": "top",
+  "margin-top": 8,
+  "margin-left": 8,
+  "margin-right": 8,
+  "modules-left": [
+    "sway/workspaces",
+    "sway/window"
+  ],
+  "modules-center": [
+    "custom/weather"
+  ],
+  "modules-right": [
+    "mpris",
+    "wireplumber",
+    "memory",
+    "tray",
+    "clock"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "I",
+      "2": "II",
+      "3": "III",
+      "4": "IV",
+      "5": "V",
+      "6": "VI",
+      "7": "VII",
+      "8": "VIII",
+      "9": "IX",
+      "default": "O",
+      "focused": "I",
+      "urgent": ""
     }
+  },
+  "mpris": {
+    "format": "{player_icon} {player} | {title} - {artist}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+  },
+  "memory": {
+    "format": "󰍛   {}%",
+    "interval": 5,
+    "tooltip-format": "{used:0.1f}GiB / {total:0.1f}GiB"
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 8
+  },
+  "clock": {
+    "format": "{:%a %b %d %I:%M %p}",
+    "format-alt": " {:%Y-%m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+  },
+  "wireplumber": {
+    "format": "{icon}  {volume}%  {node_name}",
+    "format-muted": "",
+    "on-click": "pulseuadio-control togmute",
+    "on-click-right": "pulseaudio-control next-node",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "custom/weather": {
+    "exec": "${HOME}/.config/waybar/scripts/wttr.sh Zagreb+Croatia",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600
+  }
 }
-
