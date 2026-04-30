@@ -1,8 +1,7 @@
-# dotfiles
+# :doughnut: dotfiles :doughnut:
 
-:doughnut:
+Things I use, managed using [stow](https://www.gnu.org/software/stow/)
 
-Things I use.
+### Theming
 
-Managed using [stow](https://www.gnu.org/software/stow/)
-
+[`themes/build.sh`] builds the theme files/configs based on a theme `colors.toml` file.
