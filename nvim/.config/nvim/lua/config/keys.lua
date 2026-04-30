@@ -23,7 +23,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- Telescope
 -- local git_files_cmd = ':Telescope git_files<CR>'
-local find_files_cmd = ':Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍<CR>'
+local find_files_cmd = ':Telescope find_files find_command=rg,--ignore,--hidden,--glob,!.git/**,--files prompt_prefix=🔍<CR>'
 vim.keymap.set('n', '<leader><leader>', find_files_cmd, { desc = 'Find files', silent = true })
 vim.keymap.set('n', '<leader>ff', find_files_cmd, { desc = 'Find files', silent = true })
 -- vim.keymap.set('n', '<leader>F', find_files_cmd, { desc = 'Find files', silent = true })
