@@ -4,10 +4,12 @@ application/pdf=org.gnome.Evince.desktop
 application/x-yaml=nvim.desktop
 inode/directory=yazi.desktop
 application/xhtml+xml=zen.desktop
+
 x-scheme-handler/http=zen.desktop
 x-scheme-handler/https=zen.desktop
 x-scheme-handler/about=zen.desktop
 x-scheme-handler/unknown=zen.desktop
+x-scheme-handler/slack=slack.desktop
 
 text/html=zen.desktop
 text/markdown=nvim.desktop
@@ -27,5 +29,3 @@ video/ogg=mpv.desktop
 video/quicktime=mpv.desktop
 video/webm=mpv.desktop
 video/x-matroska=mpv.desktop
-x-scheme-handler/jetbrains=jetbrainsd.desktop
-x-scheme-handler/slack=slack.desktop
