@@ -134,18 +134,16 @@ mode "resize" {
 }
 
 # window rules
-for_window {
-  [window_role="pop-up"] floating enable
-  [window_role="dialog"] floating enable
-  [window_type="dialog"] floating enable
-  [window_type="utility"] floating enable
-  [window_type="toolbar"] floating enable
-  [window_type="splash"] floating enable
-  [app_id="pavucontrol"] floating enable
-  [app_id="steam"] floating enable
-  # fixes web clipping issues
-  [app_id="obsidian"] focus_on_window_activation focus
-}
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="utility"] floating enable
+for_window [window_type="toolbar"] floating enable
+for_window [window_type="splash"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="steam"] floating enable
+# fixes web clipping issues
+for_window [app_id="obsidian"] focus_on_window_activation focus
 
 # Shooting the screen
 bindsym --release Print exec "grimshot savecopy area"
