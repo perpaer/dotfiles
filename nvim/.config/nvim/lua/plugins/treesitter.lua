@@ -28,10 +28,7 @@ return {
     config = function()
       require('nvim-treesitter').setup({})
 
-      require('nvim-treesitter').install({
-        'vimdoc', 'json', 'javascript', 'typescript', 'tsx', 'c', 'lua', 'rust',
-        'jsdoc', 'bash', 'templ',
-      })
+      require('nvim-treesitter').install(require('config.langs').parsers)
 
       vim.treesitter.language.register('templ', 'templ')
 

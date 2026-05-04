@@ -16,14 +16,15 @@ vim.keymap.set('n', '<M-Left>', ':vertical resize -2<CR>', { silent = true })
 vim.keymap.set('n', '<M-Right>', ':vertical resize +2<CR>', { silent = true })
 
 -- diagnostics
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '[d', vim.diagnostic.jump, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.jump, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- Telescope
 -- local git_files_cmd = ':Telescope git_files<CR>'
-local find_files_cmd = ':Telescope find_files find_command=rg,--ignore,--hidden,--glob,!.git/**,--files prompt_prefix=🔍<CR>'
+local find_files_cmd =
+':Telescope find_files find_command=rg,--ignore,--hidden,--glob,!.git/**,--files prompt_prefix=🔍<CR>'
 vim.keymap.set('n', '<leader><leader>', find_files_cmd, { desc = 'Find files', silent = true })
 vim.keymap.set('n', '<leader>ff', find_files_cmd, { desc = 'Find files', silent = true })
 -- vim.keymap.set('n', '<leader>F', find_files_cmd, { desc = 'Find files', silent = true })

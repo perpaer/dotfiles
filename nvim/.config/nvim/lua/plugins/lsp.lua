@@ -35,8 +35,9 @@ return {
 
       -- Mason for package management
       require('mason').setup()
+      local servers = require('config.langs').servers
       require('mason-lspconfig').setup({
-        ensure_installed = { 'lua_ls', 'ts_ls', 'eslint' },
+        ensure_installed = servers,
       })
 
       -- Global capabilities applied to all LSP servers
@@ -54,7 +55,7 @@ return {
       })
 
       -- Enable servers
-      for _, server in ipairs({ 'lua_ls', 'ts_ls', 'eslint' }) do
+      for _, server in ipairs(servers) do
         vim.lsp.enable(server)
       end
 
